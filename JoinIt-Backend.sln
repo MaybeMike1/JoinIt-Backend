@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoinIt-Backend", "JoinIt-Backend\JoinIt-Backend.csproj", "{D3BFCCFF-E72F-4457-B43A-B55E83D66784}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoinIt-Test", "JoinIt-Test\JoinIt-Test.csproj", "{3AF2C33D-917A-4730-AEA5-567392B490FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3BFCCFF-E72F-4457-B43A-B55E83D66784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3BFCCFF-E72F-4457-B43A-B55E83D66784}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3BFCCFF-E72F-4457-B43A-B55E83D66784}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3BFCCFF-E72F-4457-B43A-B55E83D66784}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AF2C33D-917A-4730-AEA5-567392B490FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AF2C33D-917A-4730-AEA5-567392B490FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AF2C33D-917A-4730-AEA5-567392B490FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AF2C33D-917A-4730-AEA5-567392B490FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {282941AF-E58E-49E6-B24D-379870B87FAE}
+	EndGlobalSection
+EndGlobal

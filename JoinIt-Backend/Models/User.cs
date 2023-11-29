@@ -1,18 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JoinIt_Backend.Models
 {
+    [Table("Users")]
     public class User
     {
-        public int Id { get; set; }
-
+        [Key]
         public Guid Guid { get; set; } = Guid.NewGuid();
 
         public string FirstName { get; set; } = string.Empty;
 
         public string LastName { get; set; } = string.Empty;
 
-        public string Username { get; set;} = string.Empty;
+        public string Username { get; set; } = string.Empty;
 
         public string Email { get; set; } = string.Empty;
 
@@ -21,6 +22,8 @@ namespace JoinIt_Backend.Models
         public string PhoneNumber { get; set; } = string.Empty;
 
         public int PostalCode { get; set; }
+
+        public List<Attendance> Attendances { get; set; } = new();
 
         public List<Activity> ActiveActivities { get; set; } = new();
 

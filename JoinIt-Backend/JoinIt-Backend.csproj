@@ -22,6 +22,13 @@
 
   <ItemGroup>
     <Folder Include="Configuration\" />
+    <Folder Include="Data\" />
+    <Folder Include="Models\Dtos\PaymentDtos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JoinIt-Backend.Features.Activity\JoinIt-Backend.Features.Activity.csproj" />
+    <ProjectReference Include="..\JoinIt-Backend.Features.Authentication\JoinIt-Backend.Features.Authentication.csproj" />
   </ItemGroup>
 
 </Project>

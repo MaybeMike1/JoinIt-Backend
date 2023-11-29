@@ -1,8 +1,14 @@
-﻿namespace JoinIt_Backend.Models
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace JoinIt_Backend.Models
 {
+    [Table("Countries")]
     public class Country
     {
-        public int Id { get; set; }
+        [Key]
+        public Guid Id { get; set; } = Guid.NewGuid();
 
         public string Name { get; set; } = string.Empty;
 

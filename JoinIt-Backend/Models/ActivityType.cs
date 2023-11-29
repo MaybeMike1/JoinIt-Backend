@@ -1,8 +1,13 @@
-﻿namespace JoinIt_Backend.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace JoinIt_Backend.Models
 {
+    [Table("ActivityTypes")]
     public class ActivityType
     {
-        public int Id { get; set; }
+        [Key]
+        public Guid Guid { get; set; }
 
         public string Type { get; set; } = string.Empty;
 

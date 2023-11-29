@@ -1,8 +1,8 @@
-﻿using JoinIt_Backend.Data;
-using JoinIt_Backend.Models.Dtos.UserDtos;
+﻿using JoinIt_Backend.Shared.Data;
+using JoinIt_Backend.Shared.Models.Dtos.UserDtos;
 using Microsoft.EntityFrameworkCore;
 
-namespace JoinIt_Backend.Services
+namespace JoinIt_Backend.Features.Authentication.Services
 {
     public interface IUserService
     {
@@ -29,10 +29,10 @@ namespace JoinIt_Backend.Services
             try
             {
                 var currentUser = await _databaseContext.Users.FirstOrDefaultAsync(x => x.Guid == userGuid);
-                if(currentUser is not null)
+                if (currentUser is not null)
                 {
                     var currentPasswordIsValid = _cryptService.Compare(currentUser.PasswordHash, updateUserPasswordDto.CurrentPassword);
-                    if(currentPasswordIsValid)
+                    if (currentPasswordIsValid)
                     {
                         var newPasswordHash = _cryptService.HashPassword(updateUserPasswordDto.NewPassword);
                         currentUser.PasswordHash = newPasswordHash;
@@ -116,7 +116,7 @@ namespace JoinIt_Backend.Services
             try
             {
                 var retsVal = await _databaseContext.Users.FirstOrDefaultAsync(x => x.Guid == userGuid);
-                if(retsVal is not null)
+                if (retsVal is not null)
                 {
                     return new UserResponseDto
                     {
@@ -133,7 +133,8 @@ namespace JoinIt_Backend.Services
                     Message = $"Unable to find user with Guid : {userGuid}"
                 };
 
-            }catch(Exception)
+            }
+            catch (Exception)
             {
                 return new UserResponseDto
                 {
@@ -153,7 +154,7 @@ namespace JoinIt_Backend.Services
             try
             {
                 var currentUser = await _databaseContext.Users.FindAsync(userGuid);
-                if(currentUser is not null)
+                if (currentUser is not null)
                 {
                     _databaseContext.Entry(currentUser).CurrentValues.SetValues(updateUserDto);
                     var updatedUser = _databaseContext.Entry(currentUser).Entity;

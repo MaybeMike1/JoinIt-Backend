@@ -5,7 +5,27 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoinIt-Backend", "JoinIt-Backend\JoinIt-Backend.csproj", "{D3BFCCFF-E72F-4457-B43A-B55E83D66784}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoinIt-Test", "JoinIt-Test\JoinIt-Test.csproj", "{3AF2C33D-917A-4730-AEA5-567392B490FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoinIt-Test", "JoinIt-Test\JoinIt-Test.csproj", "{3AF2C33D-917A-4730-AEA5-567392B490FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JoinIt-Backend.Features", "JoinIt-Backend.Features", "{B3E45314-6A5B-445B-8B97-328DDEF9B659}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoinIt-Backend.Features.Authentication", "JoinIt-Backend.Features.Authentication\JoinIt-Backend.Features.Authentication.csproj", "{D5AEEC67-2680-4242-A371-3EE566DAEC34}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JoinIt-Backend.Features.Authentication", "JoinIt-Backend.Features.Authentication", "{177CCB20-E07E-4DAC-AB23-B21A7818F166}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoinIt-Backend.Shared", "JoinIt-Backend.Shared\JoinIt-Backend.Shared.csproj", "{B05F7506-34A8-480B-AD8B-61F4B30D4871}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JoinIt-Backend.Features.Payment", "JoinIt-Backend.Features.Payment", "{26D375F0-C52B-4C9F-B789-69749C895038}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JoinIt-Backend.Features.Payment", "JoinIt-Backend.Features.Payment\JoinIt-Backend.Features.Payment.csproj", "{B6DEF4D2-E5E7-4B22-82BE-4CEE8EDE032B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JoinIt-Backend.Features.Location", "JoinIt-Backend.Features.Location", "{D34B8C43-F633-4286-A1E3-4A6C329DAB60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoinIt-Backend.Features.Location", "JoinIt-Backend.Features.Location\JoinIt-Backend.Features.Location.csproj", "{6D5766E5-CC97-49D3-9AF4-10B202E6056C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoinIt-Backend.Features.Activity", "JoinIt-Backend.Features.Activity\JoinIt-Backend.Features.Activity.csproj", "{5DCDBE9B-563B-4366-A9D3-423049C216BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JoinIt-Backend.Features.Activity", "JoinIt-Backend.Features.Activity", "{20B6D93C-6D1C-452D-BCB6-FAA4C88DE34D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +41,39 @@ Global
 		{3AF2C33D-917A-4730-AEA5-567392B490FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AF2C33D-917A-4730-AEA5-567392B490FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AF2C33D-917A-4730-AEA5-567392B490FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5AEEC67-2680-4242-A371-3EE566DAEC34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5AEEC67-2680-4242-A371-3EE566DAEC34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5AEEC67-2680-4242-A371-3EE566DAEC34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5AEEC67-2680-4242-A371-3EE566DAEC34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B05F7506-34A8-480B-AD8B-61F4B30D4871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B05F7506-34A8-480B-AD8B-61F4B30D4871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B05F7506-34A8-480B-AD8B-61F4B30D4871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B05F7506-34A8-480B-AD8B-61F4B30D4871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6DEF4D2-E5E7-4B22-82BE-4CEE8EDE032B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6DEF4D2-E5E7-4B22-82BE-4CEE8EDE032B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6DEF4D2-E5E7-4B22-82BE-4CEE8EDE032B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6DEF4D2-E5E7-4B22-82BE-4CEE8EDE032B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D5766E5-CC97-49D3-9AF4-10B202E6056C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D5766E5-CC97-49D3-9AF4-10B202E6056C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D5766E5-CC97-49D3-9AF4-10B202E6056C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D5766E5-CC97-49D3-9AF4-10B202E6056C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DCDBE9B-563B-4366-A9D3-423049C216BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DCDBE9B-563B-4366-A9D3-423049C216BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DCDBE9B-563B-4366-A9D3-423049C216BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DCDBE9B-563B-4366-A9D3-423049C216BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D5AEEC67-2680-4242-A371-3EE566DAEC34} = {177CCB20-E07E-4DAC-AB23-B21A7818F166}
+		{177CCB20-E07E-4DAC-AB23-B21A7818F166} = {B3E45314-6A5B-445B-8B97-328DDEF9B659}
+		{26D375F0-C52B-4C9F-B789-69749C895038} = {B3E45314-6A5B-445B-8B97-328DDEF9B659}
+		{B6DEF4D2-E5E7-4B22-82BE-4CEE8EDE032B} = {26D375F0-C52B-4C9F-B789-69749C895038}
+		{D34B8C43-F633-4286-A1E3-4A6C329DAB60} = {B3E45314-6A5B-445B-8B97-328DDEF9B659}
+		{6D5766E5-CC97-49D3-9AF4-10B202E6056C} = {D34B8C43-F633-4286-A1E3-4A6C329DAB60}
+		{5DCDBE9B-563B-4366-A9D3-423049C216BC} = {20B6D93C-6D1C-452D-BCB6-FAA4C88DE34D}
+		{20B6D93C-6D1C-452D-BCB6-FAA4C88DE34D} = {B3E45314-6A5B-445B-8B97-328DDEF9B659}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {282941AF-E58E-49E6-B24D-379870B87FAE}

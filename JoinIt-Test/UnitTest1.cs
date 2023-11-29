@@ -26,10 +26,10 @@ namespace JoinIt_Test
             _authProviderMock.Setup(x => x.Login(data)).Returns(Task.FromResult(new AuthenticationResponseDto
             {
                 StatusCode = 200,
-                Email= "string",
-                Guid = Guid.Parse(),
+                Email = "string",
+                Guid = Guid.Empty,
                 Message = ""
-            }))
+            }));
         }
     }
 }

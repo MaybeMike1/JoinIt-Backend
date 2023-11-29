@@ -1,10 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JoinIt_Backend.Models
 {
+    [Table("Activities")]
     public class Activity
     {
-        public int Id { get; set; }
+        [Key]
+        public Guid Guid { get; set; } = Guid.NewGuid();
 
         public string Name { get; set; } = string.Empty;
 
@@ -15,8 +19,7 @@ namespace JoinIt_Backend.Models
         public string? VenueName { get; set; }
 
         public DateTime Date { get; set; }
-
-        public List<User> Attendants { get; set; } = new();
+        public ICollection<Attendance> Attendants { get; set; } = new List<Attendance>();
 
         public ActivityType ActivityType { get; set; } = new();
 

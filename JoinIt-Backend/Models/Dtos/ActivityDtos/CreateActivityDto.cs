@@ -15,5 +15,7 @@
         public string VenueName { get; set; } = string.Empty;
 
         public Guid ActivityCreatorGuid { get; set; } = new();
+
+        public string DateString { get; set; } = string.Empty;
     }
 }

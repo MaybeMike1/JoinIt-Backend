@@ -1,8 +1,13 @@
-﻿namespace JoinIt_Backend.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace JoinIt_Backend.Models
 {
+    [Table("Zips")]
     public class Zip
     {
-        public int Id { get; set; }
+        [Key]
+        public Guid Guid { get; set; } = Guid.NewGuid();
 
         public string PostalCode { get; set; } = string.Empty;
 

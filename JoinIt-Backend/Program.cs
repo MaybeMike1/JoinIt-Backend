@@ -1,6 +1,5 @@
 using JoinIt_Backend.Features.Activity;
 using JoinIt_Backend.Features.Authentication;
-using JoinIt_Backend.Services;
 using JoinIt_Backend.Shared;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -13,17 +12,7 @@ var config = builder.Configuration;
 builder.Services.AddShared(config);
 builder.Services.AddAuth();
 builder.Services.AddActivity();
-//builder.Services.AddScoped<IAuthProvider, AuthProvider>();
-//builder.Services.AddScoped<ICryptService, CryptService>();
-//builder.Services.AddScoped<IActivityContextProvider, ActivityContextProvider>();
-//builder.Services.AddScoped<IUserService, UserService>();
-//builder.Services.AddScoped<DatabaseContext>();
 builder.Services.AddControllers();
-//builder.Services.AddDbContext<DatabaseContext>(opt =>
-//{
-//    opt.UseSqlServer(config.GetConnectionString("DefaultConnection"));
-//});
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

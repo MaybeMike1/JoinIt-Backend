@@ -4,13 +4,12 @@ namespace JoinIt_Backend.Features.Activity.Models.Dtos
 {
     public class CreateActivityDto
     {
-        //public Address Address { get; set; } = new();
 
         public string ActivityName { get; set; } = string.Empty;
 
-        public int ActivityTypeGuid { get; set; }
+        public Guid ActivityTypeGuid { get; set; }
 
-        public ActivityType? ActivityType { get; set; }
+        public decimal ActivityCost { get; set; }
 
         public string Description { get; set; } = string.Empty;
 
@@ -22,6 +21,8 @@ namespace JoinIt_Backend.Features.Activity.Models.Dtos
 
         public string DateString { get; set; } = string.Empty;
 
+        public int MaxParticipants { get; set; }
+
         public static Shared.Models.Activity MapToActivity(CreateActivityDto source)
         {
             return new Shared.Models.Activity
@@ -30,7 +31,10 @@ namespace JoinIt_Backend.Features.Activity.Models.Dtos
                 IsCancelled = false,
                 VenueName = source.VenueName,
                 Name = source.ActivityName,
-                Date = DateTime.Parse(source.DateString)
+                Date = DateTime.Parse(source.DateString),
+                ActivityCosts = source.ActivityCost,
+                ActivityCapacity = source.MaxParticipants
+                
             };
         }
     }

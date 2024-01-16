@@ -23,6 +23,11 @@ namespace JoinIt_Backend.Shared.Models
 
         public int PostalCode { get; set; }
 
+        /// <summary>
+        /// Identifier provided from OAuth when using Facebook or Google Authentication.
+        /// </summary>
+        public string ExternalIdentityId { get; set; } = string.Empty;
+
         public List<Attendance> Attendances { get; set; } = new();
 
         public List<Activity> ActiveActivities { get; set; } = new();

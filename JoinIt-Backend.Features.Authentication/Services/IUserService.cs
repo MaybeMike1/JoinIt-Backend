@@ -1,5 +1,5 @@
-﻿using JoinIt_Backend.Shared.Data;
-using JoinIt_Backend.Shared.Models.Dtos.UserDtos;
+﻿using JoinIt_Backend.Features.Authentication.Models.Dtos;
+using JoinIt_Backend.Shared.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace JoinIt_Backend.Features.Authentication.Services
@@ -42,7 +42,7 @@ namespace JoinIt_Backend.Features.Authentication.Services
                         {
                             Message = $"User with Guid: {userGuid} - Password was succesfully updated.",
                             StatusCode = 201,
-                            User = updatedUser,
+                            User = UserDto.MapToUserDto(updatedUser),
                         };
                     }
 
@@ -87,7 +87,7 @@ namespace JoinIt_Backend.Features.Authentication.Services
                     await _databaseContext.SaveChangesAsync();
                     return new UserResponseDto
                     {
-                        User = deletedUser,
+                        User = UserDto.MapToUserDto(deletedUser),
                         StatusCode = 201,
                         Message = $"User with Guid : {userGuid} has been succesfully deleted from the system."
 
@@ -122,7 +122,7 @@ namespace JoinIt_Backend.Features.Authentication.Services
                     {
                         Message = $"Successfully found user with Guid {userGuid}",
                         StatusCode = 200,
-                        User = retsVal
+                        User = UserDto.MapToUserDto(retsVal)
                     };
                 }
 
@@ -160,7 +160,7 @@ namespace JoinIt_Backend.Features.Authentication.Services
                     var updatedUser = _databaseContext.Entry(currentUser).Entity;
                     return new UserResponseDto
                     {
-                        User = updatedUser,
+                        User = UserDto.MapToUserDto(updatedUser),
                         StatusCode = 200,
                         Message = $"User with Guid : {userGuid} was succesfully updated."
                     };

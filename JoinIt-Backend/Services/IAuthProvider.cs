@@ -1,6 +1,5 @@
-﻿using JoinIt_Backend.Models;
-using JoinIt_Backend.Models.Dtos;
-using JoinIt_Backend.Models.Dtos.UserDtos;
+﻿using JoinIt_Backend.Features.Authentication.Models.Dtos;
+using JoinIt_Backend.Models;
 using JoinIt_Backend.Shared.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;

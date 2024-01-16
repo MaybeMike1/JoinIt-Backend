@@ -8,6 +8,6 @@ namespace JoinIt_Backend.Features.Authentication.Models.Dtos
 
         public string Message { get; set; } = string.Empty;
 
-        public User? User { get; set; }
+        public UserDto? User { get; set; }
     }
 }

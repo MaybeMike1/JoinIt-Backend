@@ -11,5 +11,7 @@
         public string Message { get; set; } = string.Empty;
 
         public int StatusCode { get; set; }
+
+        public UserDto? userDto { get; set; } = new();
     }
 }

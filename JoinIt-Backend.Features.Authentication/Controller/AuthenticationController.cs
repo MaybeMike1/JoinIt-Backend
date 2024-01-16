@@ -32,6 +32,19 @@ namespace JoinIt_Backend.Features.Authentication.Controller
             return StatusCode(response.StatusCode, response);
         }
 
+        [HttpPost, ActionName("facebook-register")]
+        public async Task<IActionResult> AuthenticateFacebook([FromBody]MetaRequestDto metaRequestDto)
+        {
+            var response = await _authProvider.FacebookLogin(metaRequestDto);
+            return StatusCode(response.StatusCode, response);
+        }
+
+        [HttpGet, ActionName("google-register")]
+        public async Task<IActionResult> AuthenticateGoogle()
+        {
+            return Ok("Google");
+        }
+
         [HttpGet, ActionName("forgot-password")]
         public  ActionResult ForgotPassword()
         {

@@ -12,6 +12,11 @@ namespace JoinIt_Backend.Shared.Models
 
         public string Name { get; set; } = string.Empty;
 
+        public int ActivityCapacity { get; set; }
+        
+        public Guid ActivityCreatorGuid { get; set; }
+
+        public decimal ActivityCosts { get; set; }
         public string Description { get; set; } = string.Empty;
 
         public Address Address { get; set; } = new();

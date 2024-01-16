@@ -8,6 +8,8 @@ namespace JoinIt_Backend.Features.Activity.Models.Dtos
 
         public List<ActivityType>? ActivityTypes { get; set; }
 
+        public ActivityType? ActivityType { get; set; } = new();
+
         public string Message { get; set; } = string.Empty;
     }
 }

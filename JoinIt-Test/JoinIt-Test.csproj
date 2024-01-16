@@ -10,16 +10,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Faker.Net" Version="2.0.154" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
     <PackageReference Include="Moq" Version="4.20.69" />
+    <PackageReference Include="Moq.EntityFrameworkCore" Version="7.0.0.2" />
     <PackageReference Include="NUnit" Version="3.13.3" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
     <PackageReference Include="NUnit.Analyzers" Version="3.3.0" />
     <PackageReference Include="coverlet.collector" Version="3.1.2" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.6.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JoinIt-Backend\JoinIt-Backend.csproj" />
+    <ProjectReference Include="..\JoinIt-Backend.Features.Activity\JoinIt-Backend.Features.Activity.csproj" />
+    <ProjectReference Include="..\JoinIt-Backend.Features.Authentication\JoinIt-Backend.Features.Authentication.csproj" />
+    <ProjectReference Include="..\JoinIt-Backend.Shared\JoinIt-Backend.Shared.csproj" />
   </ItemGroup>
 
 </Project>

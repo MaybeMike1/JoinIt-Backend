@@ -15,9 +15,11 @@ namespace JoinIt_Backend.Features.Authentication.Services
         Task<AuthenticationResponseDto> Login(AuthenticationRequestDto credentials);
 
         Task<AuthenticationResponseDto> Register(RegisterUserDto userDto);
+
+        Task<AuthenticationResponseDto?> FacebookLogin(MetaRequestDto metaRequestDto);
     }
 
-    internal sealed class AuthProvider : IAuthProvider
+    public class AuthProvider : IAuthProvider
     {
         private readonly DatabaseContext _databaseContext;
         private readonly ICryptService _cryptService;
@@ -27,10 +29,56 @@ namespace JoinIt_Backend.Features.Authentication.Services
             _cryptService = cryptService;
         }
 
+        public async Task<AuthenticationResponseDto?> FacebookLogin(MetaRequestDto metaRequestDto)
+        {
+            if (string.IsNullOrEmpty(metaRequestDto.MetaUserId))
+                return null;
+
+            var facebookUser = await _databaseContext.Users.FirstOrDefaultAsync(x => x.ExternalIdentityId.Equals(metaRequestDto.MetaUserId));
+
+            var nameSplit = metaRequestDto.MetaUserFullName.Split(" ");
+            if(facebookUser is null)
+            {
+                var newFacebookUser = new User { ExternalIdentityId = metaRequestDto.MetaUserId, FirstName = nameSplit[0], LastName = nameSplit[1] };
+                await _databaseContext.Users.AddAsync(newFacebookUser);
+                await _databaseContext.SaveChangesAsync();
+
+                return new AuthenticationResponseDto
+                {
+                    Guid = newFacebookUser.Guid,
+                    Token = WriteToken(newFacebookUser.Guid),
+                    Message = "First Time signing in with Meta SSO - You may need to provide additional information.",
+                    StatusCode = 200,
+                    userDto = UserDto.MapToUserDto(newFacebookUser)
+                };
+            }
+
+            return new AuthenticationResponseDto
+            {
+                Guid = facebookUser.Guid,
+                Email = facebookUser.Email,
+                Message = $"Succesfully logged in using Meta SSO - Name {metaRequestDto.MetaUserFullName}",
+                Token = WriteToken(facebookUser.Guid),
+                StatusCode = 200,
+                userDto = UserDto.MapToUserDto(facebookUser)
+            };
+        }
+
         public async Task<AuthenticationResponseDto> Login(AuthenticationRequestDto credentials)
         {
             try
             {
+                if(string.IsNullOrEmpty(credentials.Email) || string.IsNullOrEmpty(credentials.Password))
+                {
+                    return new AuthenticationResponseDto
+                    {
+                        Email = null,
+                        Token = null,
+                        Guid = null,
+                        Message = "Email or password is invalid - please try again.",
+                        StatusCode = 400,
+                    };
+                }
                 var requestedUser = await _databaseContext.Users.FirstOrDefaultAsync(x => x.Email == credentials.Email);
                 var isVerified = requestedUser != null && _cryptService.Compare(requestedUser.PasswordHash, credentials.Password);
 
@@ -44,6 +92,7 @@ namespace JoinIt_Backend.Features.Authentication.Services
                         Guid = requestedUser.Guid,
                         Message = "User was sucessfully logged in.",
                         StatusCode = 200,
+                        userDto = UserDto.MapToUserDto(requestedUser)
 
                     };
                 }
@@ -100,7 +149,7 @@ namespace JoinIt_Backend.Features.Authentication.Services
                 }
 
                 var token = WriteToken(newUser.Guid);
-                var some = await _databaseContext.AddAsync<User>(newUser, new CancellationToken());
+                await _databaseContext.Users.AddAsync(newUser);
                 await _databaseContext.SaveChangesAsync();
                 return new AuthenticationResponseDto
                 {
@@ -109,6 +158,7 @@ namespace JoinIt_Backend.Features.Authentication.Services
                     StatusCode = 201,
                     Message = $"Registration went as expected. You are registered in the system.",
                     Token = token,
+                    userDto = UserDto.MapToUserDto(newUser),
                 };
 
             }
@@ -141,8 +191,8 @@ namespace JoinIt_Backend.Features.Authentication.Services
                 {
                     new Claim(ClaimTypes.NameIdentifier, userGuid.ToString())
                 }),
-                Issuer = "test",
-                Audience = "test",
+                Issuer = "JoinItBackend",
+                Audience = "JoinItApp",
                 SigningCredentials = new SigningCredentials(secretSecurityKey, SecurityAlgorithms.HmacSha256Signature),
             };
 

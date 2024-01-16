@@ -1,5 +1,5 @@
-﻿using JoinIt_Backend.Features.Authentication.Services;
-using JoinIt_Backend.Shared.Models.Dtos.UserDtos;
+﻿using JoinIt_Backend.Features.Authentication.Models.Dtos;
+using JoinIt_Backend.Features.Authentication.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

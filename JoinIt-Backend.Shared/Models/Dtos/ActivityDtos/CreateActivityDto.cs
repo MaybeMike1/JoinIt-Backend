@@ -1,6 +1,6 @@
 ﻿using JoinIt_Backend.Shared.Models;
 
-namespace JoinIt_Backend.Models.Dtos.ActivityDtos
+namespace JoinIt_Backend.Shared.Models.Dtos.ActivityDtos
 {
     public class CreateActivityDto
     {
@@ -20,6 +20,6 @@ namespace JoinIt_Backend.Models.Dtos.ActivityDtos
 
         public string DateString { get; set; } = string.Empty;
 
-        
+
     }
 }
